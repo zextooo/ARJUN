@@ -178,28 +178,26 @@
            alt="Profile Photo"
            class="rounded-xl w-80 mx-auto shadow-lg border-4 border-cyan-400">
     </div>
-<!-- Right: Swipeable Slider -->
-<div id="swipeBox" class="relative bg-gray-900 rounded-xl p-6 text-white overflow-hidden">
-  <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
-    &#8592;
-  </button>
-  <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
-    &#8594;
-  </button>
+   <!-- Right: Swipeable Slider -->
+    <div id="swipeBox" class="relative bg-gray-900 rounded-xl p-6 text-white touch-action-pan-y">
+   <button id="prevBtn"
+  class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
+  &#8592;
+</button>
 
-  <!-- Image that changes with text -->
-  <img id="slideImage" src="assets/intro.jpg" alt="Slide Image"
-       class="rounded-xl w-full max-h-48 object-cover mb-4 transition duration-500 ease-in-out">
+      <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20"">
+        &#8594;
+      </button>
 
-  <div id="aboutSlider" class="transition duration-500 ease-in-out">
-    <h2 id="slideTitle" class="text-3xl font-bold uppercase text-yellow-400 mb-2">Introduction</h2>
-    <h3 id="slideSubtitle" class="text-2xl font-semibold text-pink-400">Arjun Pandey</h3>
-    <p id="slideRole" class="text-sm text-green-400 mb-4">Full Stack Developer</p>
-    <p id="slideContent" class="mt-4 text-gray-300">
-      Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.
-    </p>
-  </div>
-</div>
+      <div id="aboutSlider" class="pl-8 pr-4 transition duration-300 ease-in-out">
+        <h2 id="slideTitle" class="text-3xl font-bold uppercase text-yellow-400 mb-2">Introduction</h2>
+        <h3 id="slideSubtitle" class="text-2xl font-semibold text-pink-400">Arjun Pandey</h3>
+        <p id="slideRole" class="text-sm text-green-400 mb-4">Full Stack Developer</p>
+        <p id="slideContent" class="mt-4 text-gray-300">
+          Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.
+        </p>
+      </div>
+    </div>
 
   </div>
 </section>

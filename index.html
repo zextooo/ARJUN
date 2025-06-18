@@ -178,28 +178,29 @@
            alt="Profile Photo"
            class="rounded-xl w-80 mx-auto shadow-lg border-4 border-cyan-400">
     </div>
+<!-- Right: Swipeable Slider -->
+<div id="swipeBox" class="relative bg-gray-900 rounded-xl p-6 text-white overflow-hidden">
+  <button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
+    &#8592;
+  </button>
+  <button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
+    &#8594;
+  </button>
 
+  <!-- Image that changes with text -->
+  <img id="slideImage" src="assets/intro.jpg" alt="Slide Image"
+       class="rounded-xl w-full max-h-48 object-cover mb-4 transition duration-500 ease-in-out">
 
-    <!-- Right: Swipeable Slider -->
-    <div id="swipeBox" class="relative bg-gray-900 rounded-xl p-6 text-white touch-action-pan-y">
-   <button id="prevBtn"
-  class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
-  &#8592;
-</button>
+  <div id="aboutSlider" class="transition duration-500 ease-in-out">
+    <h2 id="slideTitle" class="text-3xl font-bold uppercase text-yellow-400 mb-2">Introduction</h2>
+    <h3 id="slideSubtitle" class="text-2xl font-semibold text-pink-400">Arjun Pandey</h3>
+    <p id="slideRole" class="text-sm text-green-400 mb-4">Full Stack Developer</p>
+    <p id="slideContent" class="mt-4 text-gray-300">
+      Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.
+    </p>
+  </div>
+</div>
 
-      <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20"">
-        &#8594;
-      </button>
-
-      <div id="aboutSlider" class="pl-8 pr-4 transition duration-300 ease-in-out">
-        <h2 id="slideTitle" class="text-3xl font-bold uppercase text-yellow-400 mb-2">Introduction</h2>
-        <h3 id="slideSubtitle" class="text-2xl font-semibold text-pink-400">Arjun Pandey</h3>
-        <p id="slideRole" class="text-sm text-green-400 mb-4">Full Stack Developer</p>
-        <p id="slideContent" class="mt-4 text-gray-300">
-          Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -604,5 +605,61 @@ function loop() {
 document.addEventListener("DOMContentLoaded", loop);
 </script>
 
+
+
+
+<script>
+const slides = [
+  {
+    title: "Introduction",
+    subtitle: "Arjun Pandey",
+    role: "Full Stack Developer",
+    content: "Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.",
+    image: "assets/intro.jpg"
+  },
+  {
+    title: "College",
+    subtitle: "XYZ Institute of Technology",
+    role: "B.Tech in CS",
+    content: "Currently pursuing my engineering degree while building projects and exploring tech.",
+    image: "assets/college.jpg"
+  },
+  {
+    title: "Skills",
+    subtitle: "Languages & Tools",
+    role: "React • Node • Python",
+    content: "I work across the full stack, including frontend (React), backend (Node), and AI tools.",
+    image: "assets/skills.jpg"
+  },
+  {
+    title: "Hobbies",
+    subtitle: "Gaming & Creativity",
+    role: "YouTuber • Editor • Gamer",
+    content: "I love gaming, editing, and creating content in my free time — it fuels my creativity.",
+    image: "assets/hobbies.jpg"
+  }
+];
+
+let currentSlide = 0;
+
+function updateSlide() {
+  const data = slides[currentSlide];
+  document.getElementById("slideTitle").textContent = data.title;
+  document.getElementById("slideSubtitle").textContent = data.subtitle;
+  document.getElementById("slideRole").textContent = data.role;
+  document.getElementById("slideContent").textContent = data.content;
+  document.getElementById("slideImage").src = data.image;
+}
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  updateSlide();
+});
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  updateSlide();
+});
+</script>
 </body>
 </html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arjun Pandey</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+   
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0d0d0d;
+  color: #00ffe1;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+#animated-text {
+  border-right: 2px solid #00ffe1;
+  padding-left: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.magnifier {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 200%;
+  z-index: 20;
+}
+</style>
+<style>
+/* Background layers */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(#111 1px, transparent 1px),
+    linear-gradient(90deg, #111 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: scrollGrid 6s linear infinite;
+  z-index: 0;
+   pointer-events: none;
+}
+@keyframes scrollGrid {
+  from { background-position: 0 0; }
+  to { background-position: 40px 40px; }
+}
+
+.gradient-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(-45deg, rgba(0,255,255,0.05), rgba(255,0,255,0.05));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  z-index: 0;
+   pointer-events: none;
+}
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.blob {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(150px);
+  animation: floatBlob 25s ease-in-out infinite alternate;
+  z-index: 0;
+   pointer-events: none;
+}
+.blob.blue {
+  width: 400px; height: 400px;
+  background: #00ffe1; top: -80px; left: -80px;
+}
+.blob.pink {
+  width: 300px; height: 300px;
+  background: #ff00ff; bottom: -80px; right: -80px;
+}
+@keyframes floatBlob {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(60px) rotate(180deg); }
+}
+</style>
+
+
+ <style>
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 20s linear infinite;
+    }
+
+  
+  </style>
+</head>
+<body class="text-white font-sans">
+  <!-- 🔮 Dark Tech Animated Background -->
+  <div class="grid-bg"></div>
+  <div class="gradient-overlay"></div>
+  <div class="blob blue"></div>
+  <div class="blob pink"></div>
+  <div class="relative z-10">
+  
+  <!-- Navigation -->
+   <nav class="sticky top-0 backdrop-blur-lg bg-black/70 z-40 w-full p-4 flex items-center justify-between">
+    <div class="text-3xl font-bold uppercase font-mono">ARJUN</div>
+    <ul class="hidden sm:flex gap-4 text-2xl text-indigo-500 font-mono uppercase">
+      <li><a href="#home">HOME</a></li>
+       <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="#blog">BLOG</a></li>
+    </ul>
+    <button class="sm:hidden text-2xl text-indigo-500 font-mono">☰</button>
+  </nav>
+
+
+<!-- Hero Section -->
+<section class="text-white min-h-screen flex items-center justify-center">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+    
+    <!-- Left Image (Large) -->
+    <div class="md:col-span-2 flex justify-center">
+      <img
+        class="w-full max-w-md h-auto object-cover border-2 border-indigo-500 rounded-2xl"
+        src="https://mir-s3-cdn-cf.behance.net/project_modules/max_632/98ee46100842133.5f117da0781a8.jpg"
+        alt="Arjun Image"
+      />
+    </div>
+
+    <!-- Animated Text Section -->
+    <div class="md:col-span-3 text-center md:text-left space-y-6">
+      <h2 class="text-5xl md:text-6xl font-extrabold text-lime-400 text-center md:text-left tracking-wide">Arjun Pandey</h2>
+
+      <h1 class="text-4xl md:text-5xl font-bold">
+        I’m <span id="animated-text" class=""></span>
+      </h1>
+
+      <p class="text-lg text-gray-400">
+        Passionate full stack developer, software engineer & Gamer. Let's build the future.
+      </p>
+
+      <div class="flex justify-center md:justify-start space-x-4">
+        <a href="#projects" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-full font-semibold">See My Work</a>
+        <a href="#contact" class="border border-cyan-500 hover:bg-cyan-700 px-5 py-2 rounded-full font-semibold">Contact Me</a>
+      </div>
+    </div>
+
+  </div> <!-- ✅ Correct closing of grid container -->
+</section>
+
+  <!-- About Section -->
+<div id="about" class="relative mt-10 mb-5 h-20 bg-black" data-llama-id="64" data-llama-editable="true" bis_skin_checked="1">
+  <div class="flex items-center justify-center h-full" data-llama-id="65" data-llama-editable="true" bis_skin_checked="1">
+    <h2 id="about-title" class="text-4xl md:text-6xl font-bold text-indigo-500 uppercase" data-llama-id="66" data-llama-editable="true">ABOUT</h2>
+  </div>
+</div>  
+<section id="about" class="py-12 px-4">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+
+ <!-- Left: Profile Image -->
+    <div class="text-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png"
+           alt="Profile Photo"
+           class="rounded-xl w-72 mx-auto shadow-lg border-4 border-cyan-400">
+    </div>
+
+
+    <!-- Right: Swipeable Slider -->
+    <div id="swipeBox" class="relative bg-gray-900 rounded-xl p-6 text-white touch-action-pan-y">
+   <button id="prevBtn"
+  class="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20">
+  &#8592;
+</button>
+
+      <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 text-2xl text-indigo-400 hover:text-white z-20"">
+        &#8594;
+      </button>
+
+      <div id="aboutSlider" class="pl-8 pr-4 transition duration-300 ease-in-out">
+        <h2 id="slideTitle" class="text-3xl font-bold uppercase text-yellow-400 mb-2">Introduction</h2>
+        <h3 id="slideSubtitle" class="text-2xl font-semibold text-pink-400">Arjun Pandey</h3>
+        <p id="slideRole" class="text-sm text-green-400 mb-4">Full Stack Developer</p>
+        <p id="slideContent" class="mt-4 text-gray-300">
+          Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const slides = [
+    {
+      title: "Introduction",
+      subtitle: "Arjun Pandey",
+      role: "Full Stack Developer",
+      content: "Hi, I’m Arjun Pandey! I love building full-stack web apps, exploring new tech, and optimizing user experiences."
+    },
+    {
+      title: "College",
+      subtitle: "XYZ University",
+      role: "B.Tech in CSE",
+      content: "I'm currently pursuing Computer Science at XYZ University with a focus on software development and AI."
+    },
+    {
+      title: "Skills",
+      subtitle: "My Stack",
+      role: "React · Node.js · Tailwind",
+      content: "I specialize in JS ecosystems, RESTful APIs, and responsive design using modern frameworks and tools."
+    },
+    {
+      title: "Hobbies",
+      subtitle: "Beyond Code",
+      role: "🎸 Guitar · 🎥 YouTube",
+      content: "In my free time, I love playing guitar, creating coding tutorials, and staying active outdoors."
+    }
+  ];
+
+  let index = 0;
+  const ids = ["slideTitle", "slideSubtitle", "slideRole", "slideContent"];
+  const elems = ids.map(id => document.getElementById(id));
+  function render() {
+    const s = slides[index];
+    [s.title, s.subtitle, s.role, s.content].forEach((text, i) => elems[i].textContent = text);
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    index = (index - 1 + slides.length) % slides.length;
+    render();
+  });
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    index = (index + 1) % slides.length;
+    render();
+  });
+
+  let startX = 0;
+  const box = document.getElementById("swipeBox");
+  box.addEventListener("touchstart", e => startX = e.changedTouches[0].clientX);
+  box.addEventListener("touchend", e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      index = diff > 0 ? (index + 1) % slides.length : (index - 1 + slides.length) % slides.length;
+      render();
+    }
+  });
+</script>
+
+  <!-- Skills Section -->
+ <div id="skills" class="relative mt-10 mb-5 h-20 bg-black" data-llama-id="36" data-llama-editable="true" bis_skin_checked="1">
+      <div class="flex items-center justify-center h-full" data-llama-id="37" data-llama-editable="true" bis_skin_checked="1">
+        <h2 class="text-4xl md:text-6xl font-bold text-indigo-500 uppercase" data-llama-id="38" data-llama-editable="true">SKILLS</h2>
+      </div>
+    </div>
+    <div class="max-w-6xl mx-auto px-8 py-10 grid grid-cols-2 md:grid-cols-6 gap-4 rounded-lg" data-llama-id="39" data-llama-editable="true" bis_skin_checked="1">
+
+      <div class="group p-2" data-llama-id="40" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="41" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/5229e4f802fe97bc54955313e6359ee3.png" alt="HTML5" class="w-12 h-12 mb-4" data-llama-id="42" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="43" data-llama-editable="true">HTML 5</p>
+        </div>
+      </div>
+      <div class="group p-2" data-llama-id="44" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="45" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/895c7309017b0dbfef28a885769aef95.png" alt="CSS3" class="w-12 h-12 mb-4" data-llama-id="46" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="47" data-llama-editable="true">CSS3</p>
+        </div>
+      </div>
+      <div class="group p-2" data-llama-id="48" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="49" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/e7f9cfae8176a55fff2ed86fa59c05dc.png" alt="JavaScript" class="w-12 h-12 mb-4" data-llama-id="50" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="51" data-llama-editable="true">JavaScript</p>
+        </div>
+      </div>
+      <div class="group p-2" data-llama-id="52" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="53" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/52c0745e6edf2640d6a7bbb19d8f4b2a.png" alt="React" class="w-12 h-12 mb-4" data-llama-id="54" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="55" data-llama-editable="true">React</p>
+        </div>
+      </div>
+      <div class="group p-2" data-llama-id="56" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="57" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/7ee9d60e9b8cfa4a28f555f5baa939f8.png" alt="Node" class="w-12 h-12 mb-4" data-llama-id="58" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="59" data-llama-editable="true">Node</p>
+        </div>
+      </div>
+      <div class="group p-2" data-llama-id="60" data-llama-editable="true" bis_skin_checked="1">
+        <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="61" data-llama-editable="true" bis_skin_checked="1">
+          <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/ade1dbecc75de4c9ffa76839918b7042.png" alt="Tailwind" class="w-12 h-12 mb-4" data-llama-id="62" data-llama-editable="true">
+          <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="63" data-llama-editable="true">Tailwind</p>
+        </div>
+      </div>
+    
+  <div class="group p-2" data-llama-id="101" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="102" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/528/528260.png" alt="MySQL" class="w-12 h-12 mb-4" data-llama-id="103" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="104" data-llama-editable="true">MySQL</p>
+    </div>
+  </div>
+
+    <div class="group p-2" data-llama-id="105" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="106" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919830.png" alt="PHP" class="w-12 h-12 mb-4" data-llama-id="107" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="108" data-llama-editable="true">PHP</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="109" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="110" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bootstrap" class="w-12 h-12 mb-4" data-llama-id="111" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="112" data-llama-editable="true">Bootstrap</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="113" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="114" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python" class="w-12 h-12 mb-4" data-llama-id="115" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="116" data-llama-editable="true">Python</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="117" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="118" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/ac1a2ccc927e69e5362aba6e6efc0244.png" alt="GitHub" class="w-12 h-12 mb-4" data-llama-id="119" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="120" data-llama-editable="true">GitHub</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="121" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="122" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174881.png" alt="WordPress" class="w-12 h-12 mb-4" data-llama-id="123" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="124" data-llama-editable="true">WordPress</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="125" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="126" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/226/226777.png" alt="Java" class="w-12 h-12 mb-4" data-llama-id="127" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="128" data-llama-editable="true">Java</p>
+    </div>
+  </div>
+
+ 
+  <div class="group p-2" data-llama-id="129" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="130" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" alt="MongoDB" class="w-12 h-12 mb-4" data-llama-id="131" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="132" data-llama-editable="true">MongoDB</p>
+    </div>
+  </div>
+
+ 
+  <div class="group p-2" data-llama-id="133" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="134" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968342.png" alt="PostgreSQL" class="w-12 h-12 mb-4" data-llama-id="135" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="136" data-llama-editable="true">PostgreSQL</p>
+    </div>
+  </div>
+
+  <div class="group p-2" data-llama-id="137" data-llama-editable="true" bis_skin_checked="1">
+    <div class="rounded-2xl p-4 bg-black border border-indigo-500 flex flex-col items-center justify-center hover:scale-105 transition transform" data-llama-id="138" data-llama-editable="true" bis_skin_checked="1">
+      <img src="https://sdrive.blr1.cdn.digitaloceanspaces.com/files/7eee555a4f240d1a46d423fd624111ad.svg" alt="Next.js" class="w-12 h-12 mb-4" data-llama-id="139" data-llama-editable="true">
+      <p class="text-center text-indigo-300 text-lg font-medium" data-llama-id="140" data-llama-editable="true">Next.js</p>
+    </div>
+  </div>
+
+    </div>
+
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-12 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-indigo-500 uppercase text-center mb-6">PROJECTS</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+       <div class="bg-black border border-indigo-500 rounded-xl p-4">
+<img src="https://raw.githubusercontent.com/zextoo/mera/main/assets/gaming-preview.png" alt="Gaming Website"
+ class="rounded-md mb-4 border border-cyan-400">
+  <h3 class="text-xl font-semibold text-cyan-400 mb-2">Gaming Website</h3>
+  <p class="text-gray-400 mb-4">
+    A dark-tech themed personal site with neon animations, typing effects, and a glowing background — built to showcase my gaming and development style.
+  </p>
+  <a href="https://zextoo.github.io" target="_blank" class="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 px-4 rounded-full">
+    Visit Website →
+  </a>
+</div>
+
+        <div class="bg-black border border-indigo-500 rounded-xl p-4">
+          <h3 class="text-xl font-semibold mb-2">Blog Platform</h3>
+          <p class="text-gray-400">A minimal blogging platform with markdown support, dark mode, and dynamic routing built using Next.js.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+<section id="contact" class="py-12 text-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-4xl font-bold text-indigo-500 uppercase text-center mb-6">CONTACT</h2>
+    
+    <form action="https://formspree.io/f/mqabldon" method="POST" class="grid gap-4">
+       <input type="text" placeholder="Your Name" class="p-3 rounded bg-gray-800 border border-gray-600 text-white">
+      <input type="email" name="email" placeholder="Your Email" class="p-3 rounded bg-gray-800 border border-gray-600 text-white" required>
+      <textarea name="message" placeholder="Your Message" rows="5" class="p-3 rounded bg-gray-800 border border-gray-600 text-white" required></textarea>
+      <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-4 rounded">
+        Send Message
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
+  <!-- Blog Section -->
+  <section id="blog" class="py-12 bg-gray-900 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-indigo-500 uppercase text-center mb-6">BLOG</h2>
+      <div class="space-y-6">
+        <article class="bg-black border border-indigo-500 p-4 rounded-xl">
+          <h3 class="text-xl font-semibold mb-2">Getting Started with Tailwind CSS</h3>
+          <p class="text-gray-400">Learn how to build fast and responsive UIs with utility-first Tailwind CSS in your web projects.</p>
+        </article>
+        <article class="bg-black border border-indigo-500 p-4 rounded-xl">
+          <h3 class="text-xl font-semibold mb-2">JavaScript ES6 Tips & Tricks</h3>
+          <p class="text-gray-400">Modern JavaScript features you should be using to write cleaner and more efficient code.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black py-6 text-center text-gray-500 text-sm">
+    © 2025 Arjun Pandey. All rights reserved.
+  </footer>
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".magnifier-container");
+  const img = container.querySelector(".hero-image");
+  const magnifier = container.querySelector(".magnifier");
+
+  container.addEventListener("mousemove", function (e) {
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    magnifier.style.display = "block";
+    magnifier.style.left = `${x - 60}px`;
+    magnifier.style.top = `${y - 60}px`;
+    magnifier.style.backgroundImage = `url('${img.src}')`;
+    magnifier.style.backgroundPosition = `-${x * 2 - 60}px -${y * 2 - 60}px`;
+    magnifier.style.backgroundSize = `${img.width * 2}px ${img.height * 2}px`;
+  });
+
+  container.addEventListener("mouseleave", function () {
+    magnifier.style.display = "none";
+  });
+});
+</script>
+
+<script>
+  const slides = [
+    {
+      title: "Introduction",
+      subtitle: "Arjun Pandey",
+      role: "Full Stack Developer",
+      content: "Hi, I’m Arjun Pandey! I’m passionate about web development and always eager to innovate and create efficient solutions."
+    },
+    {
+      title: "College",
+      subtitle: "XYZ University",
+      role: "B.Tech in CSE",
+      content: "I'm pursuing my degree in Computer Science, where I focus on software engineering, algorithms, and emerging web technologies."
+    },
+    {
+      title: "Skills",
+      subtitle: "Tech Stack",
+      role: "React, Node.js, MongoDB",
+      content: "I specialize in building full-stack applications using modern JavaScript frameworks and tools. I also enjoy exploring AI and APIs."
+    },
+    {
+      title: "Hobbies",
+      subtitle: "Beyond Coding",
+      role: "YouTuber, Editor, Learner",
+      content: "Apart from coding, I love editing videos, making tutorials on YouTube, and learning new things to improve my creativity."
+    }
+  ];
+
+  let currentSlide = 0;
+
+  const titleEl = document.getElementById("slideTitle");
+  const subtitleEl = document.getElementById("slideSubtitle");
+  const roleEl = document.getElementById("slideRole");
+  const contentEl = document.getElementById("slideContent");
+
+  function updateSlide(index) {
+    const slide = slides[index];
+    titleEl.textContent = slide.title;
+    subtitleEl.textContent = slide.subtitle;
+    roleEl.textContent = slide.role;
+    contentEl.textContent = slide.content;
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlide(currentSlide);
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlide(currentSlide);
+  });
+
+  // ✅ Touch Swipe Support
+  const swipeBox = document.getElementById("swipeBox");
+  let startX = 0;
+
+  swipeBox.addEventListener("touchstart", function(e) {
+    startX = e.touches[0].clientX;
+  }, false);
+
+  swipeBox.addEventListener("touchend", function(e) {
+    let endX = e.changedTouches[0].clientX;
+    let diffX = startX - endX;
+
+    if (Math.abs(diffX) > 50) {
+      if (diffX > 0) {
+        // Swiped left
+        currentSlide = (currentSlide + 1) % slides.length;
+      } else {
+        // Swiped right
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      }
+      updateSlide(currentSlide);
+    }
+  }, false);
+</script>
+<script>
+const phrases = [
+  { text: "a Full Stack Developer", color: "text-yellow-400" },
+  { text: "a YouTuber", color: "text-red-400" },
+  { text: "a Software Engineer", color: "text-pink-400" }
+];
+
+let i = 0;
+let j = 0;
+let currentPhrase = [];
+let isDeleting = false;
+
+function loop() {
+  const element = document.getElementById("animated-text");
+  const current = phrases[i];
+
+  // Dynamically set color
+  element.className = current.color;
+
+  // Show typed text
+  element.innerHTML = currentPhrase.join("");
+
+  // Typing logic
+  if (!isDeleting && j <= current.text.length) {
+    currentPhrase.push(current.text[j]);
+    j++;
+  }
+
+  // Deleting logic
+  if (isDeleting && j > 0) {
+    currentPhrase.pop();
+    j--;
+  }
+
+  // When phrase is complete
+  if (j === current.text.length && !isDeleting) {
+    isDeleting = true;
+    setTimeout(loop, 2000); // pause before deleting
+    return;
+  }
+
+  // Move to next phrase
+  if (isDeleting && j === 0) {
+    isDeleting = false;
+    i = (i + 1) % phrases.length;
+    currentPhrase = [];
+  }
+
+  // Set typing speed
+  setTimeout(loop, isDeleting ? 50 : 100);
+}
+
+document.addEventListener("DOMContentLoaded", loop);
+</script>
+
+</body>
+</html>
